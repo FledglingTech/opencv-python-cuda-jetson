@@ -145,6 +145,8 @@ Steps 1--4 are handled by ``pip wheel``.
 
 The build can be customized with environment variables. In addition to any variables that OpenCV's build accepts, we recognize:
 
+**** These were not being respected when I tried it, so I recommend editing setup.py itself to guarantee that your CMAKE args are included ****
+
 - ``CI_BUILD``. Set to ``1`` to emulate the CI environment build behaviour. Used only in CI builds to force certain build flags on in ``setup.py``. Do not use this unless you know what you are doing.
 - ``ENABLE_CONTRIB`` and ``ENABLE_HEADLESS``. Set to ``1`` to build the contrib and/or headless version
 - ``ENABLE_JAVA``, Set to ``1`` to enable the Java client build.  This is disabled by default.
@@ -156,7 +158,7 @@ See the next section for more info about manual builds outside the CI environmen
 
 If some dependency is not enabled in the pre-built wheels, you can also run the build locally to create a custom wheel.
 
-1. Clone this repository: `git clone --recursive https://github.com/opencv/opencv-python.git`
+1. Clone this repository: `git clone --recursive https://github.com/FledglingTech/opencv-python-cuda-jetson.git`
 2. ``cd opencv-python``
     - you can use `git` to checkout some other version of OpenCV in the `opencv` and `opencv_contrib` submodules if needed
 3. Add custom Cmake flags if needed, for example: `export CMAKE_ARGS="-DSOME_FLAG=ON -DSOME_OTHER_FLAG=OFF"` (in Windows you need to set environment variables differently depending on Command Line or PowerShell)
