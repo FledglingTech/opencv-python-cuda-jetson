@@ -216,6 +216,7 @@ def main():
             "-DWITH_GSTREAMER=ON",
             "-DCUDA_ARCH_BIN=7.2",
             "-DOPENCV_EXTRA_MODULES_PATH=$(pwd)/opencv_contrib/modules",
+            "-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda",
         ]
         + (
             # CMake flags for windows/arm64 build
