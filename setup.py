@@ -218,7 +218,7 @@ def main():
             "-DBUILD_opencv_cudabgsegm=ON",
         
             "-DCUDA_ARCH_BIN=7.2",
-            "-DOPENCV_EXTRA_MODULES_PATH=$(pwd)/opencv_contrib/modules",
+            "-DOPENCV_EXTRA_MODULES_PATH="+os.path.abspath("opencv_contrib/modules"),
             #"-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda",
         ]
         + (
@@ -238,6 +238,7 @@ def main():
                 #"-DOPENCV_EXTRA_MODULES_PATH=" + os.path.abspath("opencv_contrib/modules")
             ]
             if build_contrib
+            
             else []
         )
     )
