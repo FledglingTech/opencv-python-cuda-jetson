@@ -187,21 +187,24 @@ def main():
             # See opencv/CMakeLists.txt for options and defaults
             "-DBUILD_opencv_apps=OFF",
             "-DBUILD_opencv_freetype=OFF",
-            "-DBUILD_SHARED_LIBS=OFF",
+            "-DBUILD_SHARED_LIBS=ON",
             "-DBUILD_TESTS=OFF",
             "-DBUILD_PERF_TESTS=OFF",
             "-DBUILD_DOCS=OFF",
-            "-DPYTHON3_LIMITED_API=ON",
+            "-DPYTHON3_LIMITED_API=OFF",
             "-DBUILD_OPENEXR=ON",
             # Include CUDA and Contrib Libs
-            "-DWITH_CUDA=ON",
-            "-DWITH_CUDNN=ON",
+           
             "-DOPENCV_DNN_CUDA=ON",
-            "-DWITH_CUBLAS=ON",
             "-DENABLE_FAST_MATH=ON",
             "-DCUDA_FAST_MATH=ON",
+            "-DWITH_CUBLAS=ON",
+            "-DWITH_LAPACK=ON",
+            "-DWITH_CUDA=ON",
+            "-DWITH_CUDNN=ON",
             "-DWITH_CUFFT=ON",
             "-DWITH_NVCUVID=ON",
+            "-DWITH_GSTREAMER=ON",
             "-DBUILD_opencv_cudacodec=ON",
             "-DBUILD_opencv_cudaarithm=ON",
             "-DBUILD_opencv_cudafilters=ON",
@@ -213,10 +216,10 @@ def main():
             "-DBUILD_opencv_cudaoptflow=ON",
             "-DBUILD_opencv_cudastereo=ON",
             "-DBUILD_opencv_cudabgsegm=ON",
-            "-DWITH_GSTREAMER=ON",
+        
             "-DCUDA_ARCH_BIN=7.2",
             "-DOPENCV_EXTRA_MODULES_PATH=$(pwd)/opencv_contrib/modules",
-            "-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda",
+            #"-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda",
         ]
         + (
             # CMake flags for windows/arm64 build
@@ -231,7 +234,9 @@ def main():
             else []
           )
         + (
-            ["-DOPENCV_EXTRA_MODULES_PATH=" + os.path.abspath("opencv_contrib/modules")]
+            [
+                #"-DOPENCV_EXTRA_MODULES_PATH=" + os.path.abspath("opencv_contrib/modules")
+            ]
             if build_contrib
             else []
         )
