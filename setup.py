@@ -216,7 +216,8 @@ def main():
             "-DBUILD_opencv_cudaoptflow=ON",
             "-DBUILD_opencv_cudastereo=ON",
             "-DBUILD_opencv_cudabgsegm=ON",
-        
+            # xphoto seems to have imperfect support on ARM for this opencv version (according to copilot)
+            "-DBUILD_opencv_xphoto=OFF",
             "-DCUDA_ARCH_BIN=7.2",
             "-DOPENCV_EXTRA_MODULES_PATH="+os.path.abspath("opencv_contrib/modules"),
             #"-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda",
