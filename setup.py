@@ -220,6 +220,8 @@ def main():
             "-DBUILD_opencv_xphoto=OFF",
             "-DCUDA_ARCH_BIN=7.2",
             "-DOPENCV_EXTRA_MODULES_PATH="+os.path.abspath("opencv_contrib/modules"),
+            "-DWITH_NEON=ON",
+
             #"-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda",
         ]
         + (
